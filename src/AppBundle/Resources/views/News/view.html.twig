@@ -1,0 +1,15 @@
+<h3>{{post.title}} <sub>{{post.visitCount}}</sub></h3>
+<p>{{post.content}}</p>
+
+Comment Count: {{post.comments.count}}<br>
+{% for c in post.comments %}
+    {{c.name}}:<br>
+    {{c.comment}}
+    {% if loop.last == false %}
+        <hr>
+    {% endif%}
+{% endfor%}
+{{form_start(form)}} 
+{{form_widget(form)}}
+<input type="submit" value="add">
+{{form_end(form)}} 
